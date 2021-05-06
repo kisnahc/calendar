@@ -10,7 +10,7 @@ public class Calendar {
     private static final int[] MonthDays = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
     public int getMonthDays(int inputMonth) {
-        return MonthDays[inputMonth-1];
+        return MonthDays[inputMonth - 1];
     }
 
     public void printSampleCalendar() {
@@ -25,17 +25,19 @@ public class Calendar {
     public static void main(String[] args) {
 
         //숫자를 입력박아 해당하는 달의 최대 일수를 출력하는 프로그램
-        System.out.println("달을 입력하세요.");
         Scanner scanner = new Scanner(System.in);
-        int inputMonth = scanner.nextInt();
-
         Calendar cal = new Calendar();
-        int monthDays = cal.getMonthDays(inputMonth);
 
-        System.out.println(inputMonth + "월은 " + monthDays + "일까지 있습니다.");
+        System.out.println("반복횟수를 입력하세요.");
+        int inputRepeat = scanner.nextInt();
 
-        cal.printSampleCalendar();
+        for (int i = 0; i < inputRepeat; i++) {
+            System.out.println("달을 입력하세요.");
+            int inputMonth = scanner.nextInt();
+            System.out.println(inputMonth + "월은 " + cal.getMonthDays(inputMonth) + "일까지 있습니다.");
+        }
 
+        System.out.println("Bye~:)");
         scanner.close();
     }
 
