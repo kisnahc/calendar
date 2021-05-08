@@ -16,29 +16,35 @@ public class Calendar {
     public void printSampleCalendar() {
         System.out.println(
                 "일  월  화  수  목  금  토" + "\n" +
-                "--------------------" + "\n" +
-                " 1  2  3  4  5  6  7" + "\n" +
-                " 8  9 10 11 12 13 14" + "\n" +
-                "15 16 17 18 19 20 21" + "\n" +
-                "22 23 24 25 26 27 28");
+                        "--------------------" + "\n" +
+                        " 1  2  3  4  5  6  7" + "\n" +
+                        " 8  9 10 11 12 13 14" + "\n" +
+                        "15 16 17 18 19 20 21" + "\n" +
+                        "22 23 24 25 26 27 28");
     }
+
     public static void main(String[] args) {
 
         //숫자를 입력박아 해당하는 달의 최대 일수를 출력하는 프로그램
+
+        String PROMPT = "cal> ";
         Scanner scanner = new Scanner(System.in);
         Calendar cal = new Calendar();
 
-        System.out.println("반복횟수를 입력하세요.");
-        int inputRepeat = scanner.nextInt();
-
-        for (int i = 0; i < inputRepeat; i++) {
+        int inputMonth = 1;
+        while (true) {
             System.out.println("달을 입력하세요.");
-            int inputMonth = scanner.nextInt();
+            System.out.print(PROMPT);
+            inputMonth = scanner.nextInt();
+
+            if (inputMonth == -1) {
+                break;
+            } else if (inputMonth > 12) {
+                continue;
+            }
             System.out.println(inputMonth + "월은 " + cal.getMonthDays(inputMonth) + "일까지 있습니다.");
         }
-
-        System.out.println("Bye~:)");
+        System.out.println("Have a nice day~:)");
         scanner.close();
     }
-
 }
